@@ -1,8 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div>Empty item inventory: {{ inventory.emptyItems }}</div>
-      <div>Shopping list size: {{ inventory.shoppingListItems }}</div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-10 card p-3">
+          <h4>Empty inventory: {{ getEmptyInventoryItems().length }}</h4>
+          <div style="overflow-y: auto; max-height: 10rem;" >
+            <div *ngFor="let item of getEmptyInventoryItems()">
+              {{ item.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-10 card p-3">
+          <h4>Shopping list: {{ getShoppingListItems().length }}</h4>
+          <div style="overflow-y: auto; max-height: 10rem;">
+            <div *ngFor="let item of getShoppingListItems()">
+              <div class="row" style="width: 100%;">
+                <div class="col-md-7">{{ item.name }}</div>
+                <div class="col-md-5">
+                  <small> quantity: {{ item.quantityInfo.shoppingList }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 card p-3">
+      <h1>Active projects</h1>
+      <app-project-short
+        *ngFor="let project of projectData.projects"
+        [project]="project"
+      ></app-project-short>
     </div>
   </div>
 </div>

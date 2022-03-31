@@ -15,7 +15,7 @@ export class DataService {
         quantityInfo: {
           type: UnitType.NUMBER,
           inventory: 10,
-          shoppingList: 2,
+          shoppingList: 25,
         },
       },
       {
@@ -71,6 +71,14 @@ export class DataService {
         id: 0,
         name: 'Lighthouse Renovation',
         description: 'Renovate the bathroom floors of the Lighthouse',
+        inventoryItems: {
+          items: []
+        },
+      },
+      {
+        id: 1,
+        name: 'Bathroom - Private House 52c',
+        description: 'Create a bathroom in the first floor of a newly created standalone house. Should contain: shower, bath, sink, toilet.',
         inventoryItems: {
           items: []
         },
