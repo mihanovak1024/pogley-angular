@@ -8,6 +8,7 @@
           class="col-md-6 p-3 text-bg-dark"
           style="cursor: pointer"
           underlineDirective
+          (click)="onInventoryClicked()"
         >
           <h4>Empty inventory: {{ getEmptyInventoryItems() }}</h4>
         </div>
@@ -15,6 +16,7 @@
           class="col-md-6 p-3 bg-dark text-white"
           style="cursor: pointer"
           underlineDirective
+          (click)="onShoppingClicked()"
         >
           <h4>Shopping list: {{ getShoppingListItems() }}</h4>
         </div>

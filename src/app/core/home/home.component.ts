@@ -17,16 +17,23 @@ export class HomeComponent implements OnInit {
     this.projectData = dataService.projectData;
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   getEmptyInventoryItems(): number {
-    return this.data.items.filter((item) => item.quantityInfo.inventory === 0).length
+    return this.data.items.filter((item) => item.quantityInfo.inventory === 0)
+      .length;
   }
 
   getShoppingListItems(): number {
-    return this.data.items.filter((item) => item.quantityInfo.shoppingList > 0).length
+    return this.data.items.filter((item) => item.quantityInfo.shoppingList > 0)
+      .length;
+  }
+
+  onShoppingClicked() {
+    this.router.navigate(['/shopping-list']);
+  }
+  onInventoryClicked() {
+    this.router.navigate(['/inventory']);
   }
 
   // The navigation could also happen in ProjectShortComponent,
@@ -34,5 +41,4 @@ export class HomeComponent implements OnInit {
   onProjectClicked(project: Project) {
     this.router.navigate([`/projects/${project.id}`]);
   }
-
 }
