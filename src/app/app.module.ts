@@ -11,6 +11,7 @@ import { ShortenPipe } from './core/home/project-short/shorten.pipe';
 import { ProjectComponent } from './core/project/project.component';
 import { ShoppingListComponent } from './core/shopping-list/shopping-list.component';
 import { UnderlineDirective } from './common/underline.directive';
+import { ItemDetailsComponent } from './core/inventory/item-details/item-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UnderlineDirective } from './common/underline.directive';
     ShortenPipe,
     ProjectComponent,
     ShoppingListComponent,
-    UnderlineDirective
+    UnderlineDirective,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,

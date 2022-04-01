@@ -16,24 +16,28 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  isNonNumberUnitType(): boolean {
-    if (this.selected) {
-      return this.selected.quantityInfo.type != UnitType.NUMBER;
-    }
-    return false;
-  }
-
-  getDimensions(): String {
-    if (this.selected) {
-      const  dimensions = this.selected.quantityInfo.dimensions;
-      if (dimensions) {
-        return JSON.stringify(dimensions);
-      }
-    }
-    return "";
-  }
-
   onSelected(item: Item) {
-    this.selected = item;
+    if (item === this.selected) {
+      this.selected = undefined;
+    } else {
+      this.selected = item;
+    }
+  }
+
+  onItemSaved() {
+    if (this.selected) {
+
+    }
+  }
+
+  onItemDeleted() {
+    console.log(this.selected);
+    if (this.selected) {
+      const list = this.dataService.inventoryData.items.slice().filter((item) => {
+        return item.id !== this.selected?.id;
+      });
+      this.dataService.inventoryData.items = list;
+      this.selected = undefined;
+    }
   }
 }

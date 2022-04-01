@@ -7,7 +7,11 @@
           class="list-group-item"
           *ngFor="let item of data.items; let i = index"
           (click)="onSelected(item)"
-          [ngClass]="selected === data.items[i] ? 'bg-dark text-white' : 'bg-white text-dark'"
+          [ngClass]="
+            selected === data.items[i]
+              ? 'bg-dark text-white'
+              : 'bg-white text-dark'
+          "
         >
           <h4 class="list-group-item-heading">{{ item.name }}</h4>
           <p class="list-group-item-text">{{ item.description }}</p>
@@ -15,33 +19,11 @@
       </div>
       <div class="col-md-7">
         <div *ngIf="selected">
-          <h1 class="pb-3">Selected item</h1>
-          <div class="d-flex justify-content-between">
-            <h3><u>{{ selected!.name }}</u></h3>
-            <div class="btn btn-info">Edit</div>
-          </div>
-          <p>{{ selected!.description }}</p>
-          <h4>Quantity:</h4>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item" [ngSwitch] = "selected!.quantityInfo.type">
-              <span *ngSwitchCase="0">Type: <b>number</b></span>
-              <span *ngSwitchCase="1">Type: <b>mm</b></span>
-              <span *ngSwitchCase="2">Type: <b>cm</b></span>
-              <span *ngSwitchCase="3">Type: <b>m</b></span>
-              <span *ngSwitchCase="4">Type: <b>mm2</b></span>
-              <span *ngSwitchCase="5">Type: <b>cm2</b></span>
-              <span *ngSwitchCase="6">Type: <b>m2</b></span>
-            </li>
-            <li class="list-group-item" *ngIf="isNonNumberUnitType()">
-              Dimensions: {{ getDimensions() }}
-            </li>
-            <li class="list-group-item" [ngClass]="selected!.quantityInfo.inventory === 0 ? 'text-danger' : ''">
-              In inventory: <b>{{ selected!.quantityInfo.inventory }}</b>
-            </li>
-            <li class="list-group-item">
-              On shopping list: <b>{{ selected!.quantityInfo.shoppingList }}</b>
-            </li>
-          </ul>
+          <app-item-details
+            [item]="selected"
+            (onDeleteClicked)="onItemDeleted()"
+            (onSaveClicked)="onItemSaved()"
+          ></app-item-details>
         </div>
       </div>
     </div>
