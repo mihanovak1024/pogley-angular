@@ -1,43 +1,29 @@
+<!-- Basic inventory info -->
+
 <section>
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 m-auto card">
-        <div class="row">
-          <div class="col-md-6 p-3 bg-secondary text-white">
-            <h4>Empty inventory: {{ getEmptyInventoryItems().length }}</h4>
-            <div style="overflow-y: auto; max-height: 10rem">
-              <div *ngFor="let item of getEmptyInventoryItems()">
-                {{ item.name }}
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 p-3 bg-success text-white">
-            <h4>Shopping list: {{ getShoppingListItems().length }}</h4>
-            <div style="overflow-y: auto; max-height: 10rem">
-              <div *ngFor="let item of getShoppingListItems()">
-                <div class="row" style="width: 100%">
-                  <div class="col-md-7">{{ item.name }}</div>
-                  <div class="col-md-5">
-                    <small>
-                      quantity: {{ item.quantityInfo.shoppingList }}</small
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="col-md-6 m-auto">
+      <div class="row text-center">
+        <div class="col-md-6 p-3 text-bg-dark">
+          <h4>Empty inventory: {{ getEmptyInventoryItems() }}</h4>
+        </div>
+        <div class="col-md-6 p-3 bg-dark text-white">
+          <h4>Shopping list: {{ getShoppingListItems() }}</h4>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+<!-- Project list -->
 <section class="mt-5">
   <div class="container">
-    <h1 class="p-3">Active projects</h1>
+    <h1 class="py-3">Active projects</h1>
     <app-project-short
       *ngFor="let project of projectData.projects"
       [project]="project"
+      (projectClicked)="onProjectClicked(project)"
     ></app-project-short>
   </div>
 </section>

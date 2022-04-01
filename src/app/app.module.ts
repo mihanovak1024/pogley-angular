@@ -8,6 +8,8 @@ import { InventoryComponent } from './core/inventory/inventory.component';
 import { HomeComponent } from './core/home/home.component';
 import { ProjectShortComponent } from './core/home/project-short/project-short.component';
 import { ShortenPipe } from './core/home/project-short/shorten.pipe';
+import { ProjectComponent } from './core/project/project.component';
+import { ShoppingListComponent } from './core/shopping-list/shopping-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ShortenPipe } from './core/home/project-short/shorten.pipe';
     InventoryComponent,
     HomeComponent,
     ProjectShortComponent,
-    ShortenPipe
+    ShortenPipe,
+    ProjectComponent,
+    ShoppingListComponent
   ],
   imports: [
     BrowserModule,
