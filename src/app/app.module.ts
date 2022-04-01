@@ -10,6 +10,7 @@ import { ProjectShortComponent } from './core/home/project-short/project-short.c
 import { ShortenPipe } from './core/home/project-short/shorten.pipe';
 import { ProjectComponent } from './core/project/project.component';
 import { ShoppingListComponent } from './core/shopping-list/shopping-list.component';
+import { UnderlineDirective } from './common/underline.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ShoppingListComponent } from './core/shopping-list/shopping-list.compon
     ProjectShortComponent,
     ShortenPipe,
     ProjectComponent,
-    ShoppingListComponent
+    ShoppingListComponent,
+    UnderlineDirective
   ],
   imports: [
     BrowserModule,
